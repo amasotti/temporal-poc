@@ -26,11 +26,3 @@ A Temporal Application (i.e. a set of workflows and activities) is structured as
 **Read more [here](https://learn.temporal.io/)**
 
 _Code copied from the demo Java Repo:_ https://github.com/temporalio/money-transfer-project-java/tree/main
-
-
-## Why Temporal for Bikeleasing:
-
-- Ideal for a service landscape using Kotlin / Java as the main language
-- SDK Available also for PHP, Typescript and .NET which means we can start using it in all our services, while still having the same workflow engine and although we're not yet ready to migrate entire services to Kotlin.
-- Workflows as Code: better to debug, audit, test than low-code solutions
-- Scalable and fault-tolerant
