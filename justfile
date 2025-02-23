@@ -17,3 +17,24 @@ test: format
 check: format
     @echo "Checking for justfile"
     @./gradlew clean check
+
+clean:
+    @echo "Cleaning project"
+    @./gradlew clean
+
+clean-build: clean
+    @echo "Cleaning build"
+    @./gradlew build --refresh-dependencies
+
+build:
+    @echo "Building project"
+    @./gradlew build
+
+run:
+    @echo "Running project"
+    @./gradlew run
+
+worker:
+    @echo "Running worker"
+    @./gradlew worker
+

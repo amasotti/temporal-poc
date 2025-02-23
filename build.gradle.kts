@@ -21,6 +21,9 @@ dependencies {
     // Core
     implementation(libs.temporal)
 
+    // Serialization
+    implementation(libs.jackson.kotlinModule)
+
     // Logging
     implementation(libs.logging)
     implementation(libs.logback.classic)
@@ -29,6 +32,16 @@ dependencies {
     testImplementation(libs.kotest)
     testImplementation(libs.kotest.assertions)
     testImplementation(libs.mockk)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    mainClass.set("com.tonihacks.temporalpoc.TransferApp")
 }
 
 tasks {
@@ -70,6 +83,13 @@ tasks {
     }
     named("compileTestJava") {
         enabled = false
+    }
+
+    register<JavaExec>("worker") {
+        group = "application"
+        description = "Runs the MoneyTransferWorker"
+        classpath = sourceSets["main"].runtimeClasspath
+        mainClass.set("com.tonihacks.temporalpoc.MoneyTransferWorker")
     }
 }
 
